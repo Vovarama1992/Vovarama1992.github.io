@@ -1,0 +1,17 @@
+class ImgMove extends HTMLImageElement {
+    constructor() {
+        super();
+        this.className = "element";
+    }
+    
+defineLook(look) {
+        this.look = look;
+    }
+
+    up() {
+        while (img.getBoundingClientRect().top
+        img.style.top = img.getBoundingClientRect().top
+    }
+
+
+customElements.define('img-move', ImgMove, { extends: 'img' });

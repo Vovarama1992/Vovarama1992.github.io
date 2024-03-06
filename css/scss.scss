@@ -1,0 +1,203 @@
+body {
+    background-color: pink;
+    
+   
+}
+#alertion {
+    position: fixed;
+    left: 300px;
+    top: 10px;
+    width: 100px;
+    height: 20px;
+    font-family: Arial, sans-serif; /* Установка шрифта */
+    font-size: 16px; /* Установка размера шрифта */
+    color: #ce2929; /* Установка цвета текста */
+    font-weight: bold; /* Установка насыщенности шрифта (жирный) */
+    text-align: center; /* Установка выравнивания текста по центру */
+    text-decoration: wavy;
+
+}
+.element {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 10px;
+    top: 10px;
+    
+}
+.knopka {
+    margin: 10;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: green;
+    border: 2px double green;
+    border-radius: 12px;
+}
+#menu {
+    position: fixed;
+    top: 60px;
+    left: 10px;
+    height: 400px;
+    width: 200px;
+    
+    display: flex;
+    background: pink;
+   flex-direction: column;
+    justify-content: space-between;
+}
+.level {
+    display: flex;
+    width: 150px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.move {
+    background: red;
+    border: 1px red;
+}
+.moveMenu {
+    border: 1px red;
+}
+#bottle {
+    position: fixed;
+    top: 60px;
+    left: 250px;
+    width: 280px;
+    height: 600px;
+    border: 1px pink;
+    display: flex;
+    flex-direction: column-reverse;
+    background: white;
+    border-radius: 10px;
+    
+    overflow: hidden;
+
+    
+    
+}
+#water {
+    
+    height: 300px;
+    flex-shrink: 0;
+    
+    
+    opacity: 0.7;
+    overflow: visible;
+    
+    
+    
+
+}
+#freezone {
+    height: 150px;
+    opacity: 0.2;
+    
+    order: 1;
+    flex-shrink: 1;
+    
+}
+#upperzone {
+    order: 2;
+    height: 150px;
+    flex-shrink: 0;
+    
+}
+
+.darker {
+    animation-name: darker;
+    animation-duration: 200ms;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+}
+#statistic {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    width: 120px;
+    height: 170px;
+    justify-content: center;
+    background: black;
+    color: white;
+    top: 250px;
+    left: 100px;
+    padding: 0px 50px 0px 50px;
+
+
+}
+@keyframes darker {
+    0% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes releaseDark {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.7
+    }
+}
+.releaseDark {
+    animation-name: releaseDark;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+
+    
+}
+#tips {
+    
+    position: fixed;
+    padding:  5px 5px 5px 5px;
+    z-index: 9999;
+    left: 600px;
+    top: 280px;
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background: green;
+    color: red;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: dashed;
+    font-size: 20;
+}
+#buttonTips {
+    position: fixed;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 280px;
+    left: 550px;
+    color: red;
+    background: black;
+    
+    
+    
+    width: 50px;
+    height: 30px;
+}
+#rulesList {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: black;
+    top: 470px;
+    left: 10px;
+    
+}
+

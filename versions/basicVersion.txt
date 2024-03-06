@@ -1,0 +1,41 @@
+let asker = confirm("Are u ready?");
+let img;
+let bottom = [];
+let bottomLevel = bottle.getBoundingClientRect().bottom;
+let speed = 3;
+let dropTime;
+function push() {
+    img = document.createElement("img");
+    img.className = "element";
+    document.body.append(img);
+    img.src = Math.random() > 0.5 ? "images/fire.jpg" : "images/snowflake.jpg";
+    img.style.left = bottle.getBoundingClientRect().left + Math.random() * bottle.offsetWidth - img.offsetWidth  + "px";
+    let left = img.getBoundingClientRect().left;
+    
+    if (left < bottle.getBoundingClientRect().left) {
+        img.style.left = left + img.offsetWidth + "px";
+        left = parseInt(img.style.left);
+    };
+    let right = img.getBoundingClientRect().right;
+    for (let section of bottom) {
+        if ((left >= section[0]  && left <= section[1]) || right >= section[0]  && right <= section[1] ) {
+            bottomLevel -= img.offsetHeight;
+        }
+    }
+    img.style.top = "10px";
+    function drop() {
+        let newTop = parseInt(img.style.top) + 5;
+        img.style.top = newTop + "px";
+        if (parseInt(img.style.top) >= bottomLevel - img.offsetHeight) {
+            clearInterval(dropTime);
+            let [a, b] = [img.getBoundingClientRect().left, img.getBoundingClientRect().right];
+            bottom.push([a, b]);
+            bottomLevel = bottle.getBoundingClientRect().bottom;
+            
+            push();
+            
+        };
+    };
+    dropTime = setInterval(drop, speed);
+};
+push();
