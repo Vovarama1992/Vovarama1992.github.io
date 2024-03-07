@@ -70,15 +70,16 @@ function tipsShow(stop, index) {
 ];
 if (stop) {
     tips.style.display = "none";
-    clearInterval(tipper);
+    clearTimeout(tipper);
     return;
 };
+tips.style.display = "flex";
 index = !index || index + 1 > arr.length ? 0 : index;
 tips.textContent = arr[index];
-let tipper = setTimeout(() => tipsShow(null, index), 1500);
+tipper = setTimeout(() => tipsShow(null, index + 1), 1500);
 
 }
-buttonTips.addEventListener("mouseover", tipsShow);
+buttonTips.addEventListener("mouseover", () => tipsShow());
 buttonTips.addEventListener("mouseout", () => tipsShow(true));
 
 stats.onmouseover = function(e) {
