@@ -10,6 +10,7 @@ class ImgLook extends HTMLImageElement {
         moveUp(this);
     }
 };
+start.style.background = "blue";
 rulesList.style.display = "none";
 function showRules(e) {
     if (e.type == "mouseover") {
@@ -222,6 +223,7 @@ function push() {
     if (water.getBoundingClientRect().top - freezone.getBoundingClientRect().top <= 7) {
         alert("Game over! U cannot hold level(((");
         clearInterval(countChanger);
+        
         return;
     }
     temper = bottom.filter(bot => bot[0].look == "fire").length - bottom.filter(bot => bot[0].look == "snowflake").length;
