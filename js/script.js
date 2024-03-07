@@ -62,21 +62,26 @@ function showTips() {
    setTimeout(too, 1500);
 }
 buttonTips.onmouseover = function(e) {
-    if (!mouseOn) {
-    setTimeout(() => {
-        mouseOn = true;
     
-    showTips();
-    }, 600);
-};
+    
+        setTimeout(() => {
+            mouseOn = true;
+            showTips();
+        }, 600);
+    
+    
+   
+
 }
 buttonTips.onmouseout = function(e) {
-    if (mouseOn) {
-    setTimeout(() => {
-        mouseOn = false;
+    
     tips.style.display = "none";
-    }, 600);
-};
+        setTimeout(() => {
+            mouseOn = false;
+        }, 600);
+    
+    
+
 }
 
 stats.onmouseover = function(e) {
