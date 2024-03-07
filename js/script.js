@@ -10,7 +10,6 @@ class ImgLook extends HTMLImageElement {
         moveUp(this);
     }
 };
-start.style.background = "blue";
 rulesList.style.display = "none";
 function showRules(e) {
     if (e.type == "mouseover") {
@@ -62,28 +61,25 @@ function showTips() {
    tips.textContent = "save palms, but";
    setTimeout(too, 1500);
 }
-buttonTips.onmouseover = function(e) {
-    
-    
-        setTimeout(() => {
-            mouseOn = true;
-            showTips();
-        }, 600);
-    
-    
-   
-
-}
-buttonTips.onmouseout = function(e) {
-    
+function tipsShow(stop, index) {
+    let arr = ["save palms, but...",
+               "...fires too!",
+               "cause fire increases the temperature",
+               "more time to think",
+            "the last element destroys its relatives in the row"
+];
+if (stop) {
     tips.style.display = "none";
-        setTimeout(() => {
-            mouseOn = false;
-        }, 600);
-    
-    
+    clearInterval(tipper);
+    return;
+};
+index = !index || index + 1 > arr.length ? 0 : index;
+tips.textContent = arr[index];
+let tipper = setTimeout(() => tipsShow(null, index), 1500);
 
 }
+buttonTips.addEventListener("mouseover", tipsShow);
+buttonTips.addEventListener("mouseout", () => tipsShow(true));
 
 stats.onmouseover = function(e) {
     
@@ -223,7 +219,6 @@ function push() {
     if (water.getBoundingClientRect().top - freezone.getBoundingClientRect().top <= 7) {
         alert("Game over! U cannot hold level(((");
         clearInterval(countChanger);
-        
         return;
     }
     temper = bottom.filter(bot => bot[0].look == "fire").length - bottom.filter(bot => bot[0].look == "snowflake").length;
