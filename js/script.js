@@ -21,7 +21,7 @@ function showRules(e) {
 }
 rules.addEventListener("mouseover", showRules);
 rules.addEventListener("mouseout", showRules);
-let mouseOn = true;
+let mouseOn = false;
 let temperDiff = 0;
 let level = 1;
 tips.style.display = "none";
@@ -62,17 +62,21 @@ function showTips() {
    setTimeout(too, 1500);
 }
 buttonTips.onmouseover = function(e) {
+    if (!mouseOn) {
     setTimeout(() => {
         mouseOn = true;
     
     showTips();
     }, 600);
+};
 }
 buttonTips.onmouseout = function(e) {
+    if (mouseOn) {
     setTimeout(() => {
         mouseOn = false;
     tips.style.display = "none";
     }, 600);
+};
 }
 
 stats.onmouseover = function(e) {
@@ -386,4 +390,4 @@ if (asker) {
         checkChange();
     }, 1000);
 }
-tips
+mouseOn
