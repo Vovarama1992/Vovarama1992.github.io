@@ -69,20 +69,24 @@ buttonTips.onmouseover = function(e) {
     }, 600);
 }
 buttonTips.onmouseout = function(e) {
-    mouseOn = false;
+    setTimeout(() => {
+        mouseOn = false;
     tips.style.display = "none";
+    }, 600);
 }
+
 stats.onmouseover = function(e) {
     
     statistic.style.display = "flex";
     statistic.classList.add('releaseDark');
     
-    statistic.innerHTML = `Survive-time = ${count}<br>
-    <br>
-    
-    Speed = ${waterSpeed}<br><br>
-    Temperature = ${temper}<br><br>
-    Score = ${score}`;
+    statistic.innerHTML = `<p>
+        Survive-time = ${count}<br><br>
+        Speed = ${waterSpeed}<br><br>
+        Temperature = ${temper}<br><br>
+        Score = ${score}<br><br>
+        <strong style="color: red">Level = ${level}</strong>
+    </p>`;
 };
 stats.onmouseout = function(e) {
     
@@ -155,7 +159,7 @@ let count = 0;
 function checkChange() {
     if (count % 30 == 0 && count > 0) {
         level += 1;
-        changedSpeed += 2;
+        changedSpeed += 1;
         alertion.textContent = `Be safed! Level ${level} now `;
         alertion.hidden = false;
         setTimeout(() => {
@@ -213,7 +217,7 @@ function push() {
     }
     temper = bottom.filter(bot => bot[0].look == "fire").length - bottom.filter(bot => bot[0].look == "snowflake").length;
     waterSpeed = speed / 2 - (bottom.filter(bot => bot[0].look == "fire").length - bottom.filter(bot => bot[0].look == "snowflake").length) * 1.5;
-    if (waterSpeed > speed + temperDiff) {
+    if (waterSpeed > speed + 5 + temperDiff) {
         temperDiff += 1;
         alertion.textContent = `Warm the water! `;
         alertion.hidden = false;
@@ -311,7 +315,7 @@ function push() {
             let [a, b] = [img.getBoundingClientRect().left, img.getBoundingClientRect().right];
             bottom.push([img, a , b ]);
             }
-            water.style.height = 300 + bottom.length * 4 + "px";
+            water.style.height = 300 + bottom.length * 3 + "px";
             row = [];
             
             unders = [];
@@ -382,3 +386,4 @@ if (asker) {
         checkChange();
     }, 1000);
 }
+tips

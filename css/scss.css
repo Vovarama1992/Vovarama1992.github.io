@@ -111,7 +111,7 @@ body {
   z-index: 9999;
   display: flex;
   width: 120px;
-  height: 170px;
+  height: auto;
   justify-content: center;
   background: black;
   color: white;
