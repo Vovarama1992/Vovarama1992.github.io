@@ -10,6 +10,13 @@ class ImgLook extends HTMLImageElement {
         moveUp(this);
     }
 };
+rules.onmouseover = function(e) {
+    rulesList.style.display = "flex";
+
+}
+rules.onmouseout = function() {
+    rulesList.style.display = "none";
+}
 rulesList.style.display = "none";
 let mouseOn = false;
 let temperDiff = 0;
