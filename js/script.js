@@ -11,16 +11,6 @@ class ImgLook extends HTMLImageElement {
     }
 };
 rulesList.style.display = "none";
-function showRules(e) {
-    if (e.type == "mouseover") {
-        rulesList.style.display = "flex";
-    };
-    if (e.type == "mouseout") {
-        rulesList.style.display = "none";
-    }
-}
-rules.addEventListener("mouseover", showRules);
-rules.addEventListener("mouseout", showRules);
 let mouseOn = false;
 let temperDiff = 0;
 let level = 1;
