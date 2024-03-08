@@ -11,56 +11,11 @@ class ImgLook extends HTMLImageElement {
     }
 };
 rulesList.style.display = "none";
-function showRules(e) {
-    if (e.type == "mouseover") {
-        rulesList.style.display = "flex";
-    };
-    if (e.type == "mouseout") {
-        rulesList.style.display = "none";
-    }
-}
-rules.addEventListener("mouseover", showRules);
-rules.addEventListener("mouseout", showRules);
 let mouseOn = false;
 let temperDiff = 0;
 let level = 1;
 tips.style.display = "none";
 statistic.style.display = "none";
-function think() {
-    
-    if (!mouseOn) {
-        return;
-    };
-    tips.textContent = "more time to think";
-    setTimeout(() => {
-        tips.textContent = "the last element destroys its relatives in the row";
-}, 1500);
-}
-function increase() {
-   
-   if (!mouseOn) {
-    return;
-};
-tips.textContent = "cause fire increases the temperature";
-     setTimeout(think, 1500);
-}
-function too() {
-    
-    if (!mouseOn) {
-        return;
-    };
-    tips.textContent = "... fires too!";
-    setTimeout(increase, 1500);
-}
-function showTips() {
-    tips.style.display = "flex";
-    if (!mouseOn) {
-        return;
-    };
-
-   tips.textContent = "save palms, but";
-   setTimeout(too, 1500);
-}
 function tipsShow(stop, index) {
     let arr = ["save palms, but...",
                "...fires too!",

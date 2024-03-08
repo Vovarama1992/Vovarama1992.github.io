@@ -1,0 +1,21 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "game",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint js/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vovarama1992/Vovarama1992.github.io/issues"
+  },
+  "keywords": [
+    "Volodya11&"
+  ],
+  "author": "Vovarama1992",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}
