@@ -18,12 +18,14 @@ let speed = 9;
 let changedSpeed = 9;
 let waterSpeed = speed / 2;
 tips.style.display = "none";
+back.style.display = "none";
 water.style.background = "rgb(20, 10, 220)";
 palms.style.backgroundImage = 'url("images/palms.jpg")';
 let level = 1;
 let count = 0;
 let temper = 0;
 rulesList.style.display = "none";
+
 function checkChange() {
     if (count % 30 == 0 && count > 0) {
         level += 1;
@@ -222,7 +224,7 @@ window.addEventListener("keydown", function(e) {
         pause = !pause;
 }
 if (!pause) {
-    if (e.code == "KeyA") {
+    if (e.code == "KeyA" || e.code == "ArrowLeft") {
         
         img.style.left = img.getBoundingClientRect().left - img.offsetWidth + "px";
         if (img.getBoundingClientRect().left < bottle.getBoundingClientRect().left) {
@@ -231,7 +233,7 @@ if (!pause) {
         
         findLevel();
         };
-    if (e.code == "KeyD") {
+    if (e.code == "KeyD" || e.code == "ArrowRight") {
         img.style.left = img.getBoundingClientRect().left + img.offsetWidth + "px";
         if (img.getBoundingClientRect().left > bottle.getBoundingClientRect().right - img.offsetWidth) {
             img.style.left = bottle.getBoundingClientRect().right - img.offsetWidth + "px";
@@ -240,7 +242,7 @@ if (!pause) {
         findLevel()
         
     };
-    if (e.code = "KeyS") {
+    if (e.code == "KeyS" || e.code == "ArrowDown") {
         if (bottomLevel - img.getBoundingClientRect().bottom >= img.offsetHeight * 2) {
         img.style.top = img.getBoundingClientRect().top + img.offsetHeight * 2 + "px";
         };
@@ -261,7 +263,7 @@ if (!pause) {
         rulesList.style.top = mechanix.getBoundingClientRect().bottom + 3 + "px";
         rulesList.style.left = mechanix.getBoundingClientRect().left + "px";
         rulesList.style.width = mechanix.offsetWidth + "px";
-        rulesList.style.height = mechanix.offsetHeight * 2 + "px";
+        
     
     }
     mechanix.onmouseout = function() {
@@ -307,3 +309,27 @@ if (!pause) {
         
     
     }
+    function mover(e) {
+        width = container.offsetWidth;
+        touchX = e.touches[0].clientX;
+        back.style.display = "flex";
+        
+        if (touchX <= width / 2) {
+            img.style.left = img.getBoundingClientRect().left - img.offsetWidth + "px";
+        if (img.getBoundingClientRect().left < bottle.getBoundingClientRect().left) {
+            img.style.left = bottle.getBoundingClientRect().left + "px";
+        }
+        
+        findLevel();
+            
+        } else {
+            img.style.left = img.getBoundingClientRect().left + img.offsetWidth + "px";
+        if (img.getBoundingClientRect().left > bottle.getBoundingClientRect().right - img.offsetWidth) {
+            img.style.left = bottle.getBoundingClientRect().right - img.offsetWidth + "px";
+        }
+        
+        findLevel()
+        }
+    }
+    bottle.addEventListener('touchstart', mover);
+    bottle.addEventListener('touchend', () => back.style.display = "none");
