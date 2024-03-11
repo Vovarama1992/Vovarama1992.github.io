@@ -1,4 +1,4 @@
-let asker = confirm("Are u ready?");
+let asker = confirm("Жмякай по бутылке или нажимай на стрелочки");
 let img;
 let red = 20;
 let score = 0;
@@ -312,7 +312,14 @@ if (!pause) {
     function mover(e) {
         width = container.offsetWidth;
         touchX = e.touches[0].clientX;
+        touchY = e.touches[0].clientY;
         back.style.display = "flex";
+        if (touchY >= img.getBoundingClientRect().bottom + 15) {
+            if (bottomLevel - img.getBoundingClientRect().bottom >= img.offsetHeight * 2) {
+                img.style.top = img.getBoundingClientRect().top + img.offsetHeight * 2 + "px";
+                };
+                findLevel();
+        }
         
         if (touchX <= width / 2) {
             img.style.left = img.getBoundingClientRect().left - img.offsetWidth + "px";
