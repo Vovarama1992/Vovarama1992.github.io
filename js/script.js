@@ -1,3 +1,7 @@
+document.addEventListener("load", function() {
+        
+    container.style.display = "flex";
+});
 let asker = confirm("Жмякай по бутылке или нажимай на стрелочки");
 let img;
 let mobilerLeft= document.createElement("img");
@@ -132,6 +136,7 @@ function push() {
         let x = img.getBoundingClientRect().left;
         let y = img.getBoundingClientRect().top;
         if ((document.elementFromPoint(x - img.offsetWidth, y) == water) || (document.elementFromPoint(x + img.offsetWidth + 2, y) == water)) {
+            
             speed = waterSpeed;
             color(red, blue);
             water.classList.add('darker');
@@ -180,6 +185,9 @@ function push() {
             unders = [];
             
             bottomLevel = bottle.getBoundingClientRect().bottom;
+            if (count <= 10) {
+                water.style.height = water.offsetHeight + 0.5 + "px";
+            }
             water.style.height = water.offsetHeight + bottom.length / 8 + "px";
             
             
@@ -339,5 +347,4 @@ if (!pause) {
     
     mobilerLeft.onmousedown = lefter;
     mobilerRight.onmousedown = righter;
-    mobilerLeft.ontouchstart = lefter;
-    mobilerRight.ontouchstart = righter;
+    
