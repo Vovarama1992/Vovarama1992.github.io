@@ -4,6 +4,7 @@ document.addEventListener("load", function() {
 });
 let asker = confirm("Жмякай по бутылке или нажимай на стрелочки");
 let img;
+let startHeight = water.offsetHeight;
 let mobilerLeft= document.createElement("img");
 container.append(mobilerLeft);
 mobilerLeft.className = "move";
@@ -14,6 +15,12 @@ container.append(mobilerRight);
 mobilerRight.className = "move";
 mobilerRight.style.left = "78%";
 mobilerRight.src = "images/right.jpg";
+let mobilerDown= document.createElement("img");
+container.append(mobilerDown);
+mobilerDown.className = "move";
+mobilerDown.style.left = "44%";
+mobilerDown.src = "images/down.jpg";
+mobilerDown.style.marginTop = "5%";
 alertion.hidden = false;
 let red = 20;
 let score = 0;
@@ -33,7 +40,6 @@ let speed = 9;
 let changedSpeed = 9;
 let waterSpeed = speed / 2;
 tips.style.display = "none";
-back.style.display = "none";
 water.style.background = "rgb(20, 10, 220)";
 palms.style.backgroundImage = 'url("images/palms.jpg")';
 let level = 1;
@@ -186,9 +192,11 @@ function push() {
             
             bottomLevel = bottle.getBoundingClientRect().bottom;
             if (count <= 10) {
-                water.style.height = water.offsetHeight + 0.5 + "px";
+                
+                startHeight += 0.5;
             }
-            water.style.height = water.offsetHeight + bottom.length / 8 + "px";
+            grow = bottom.length / 3;
+            water.style.height = startHeight + grow + "px";
             
             
             
