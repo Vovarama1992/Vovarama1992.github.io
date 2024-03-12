@@ -282,11 +282,13 @@ if (!pause) {
         rulesList.style.top = mechanix.getBoundingClientRect().bottom + 3 + "px";
         rulesList.style.left = mechanix.getBoundingClientRect().left + "px";
         rulesList.style.width = mechanix.offsetWidth + "px";
+        mobilerLeft.style.display = "none";
         
     
     }
     mechanix.onmouseout = function() {
         rulesList.style.display = "none";
+        mobilerLeft.style.display = "block";
     }
     stopper.onclick = function() {
         if (!pause) {
