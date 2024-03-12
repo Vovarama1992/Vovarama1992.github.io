@@ -357,4 +357,13 @@ if (!pause) {
     
     mobilerLeft.onmousedown = lefter;
     mobilerRight.onmousedown = righter;
+    mobilerDown.onmouseDown = function() {
+        {
+            if (bottomLevel - img.getBoundingClientRect().bottom >= img.offsetHeight * 2) {
+            img.style.top = img.getBoundingClientRect().top + img.offsetHeight * 2 + "px";
+            };
+            findLevel();
+    
+        }
+    }
     
