@@ -1,5 +1,16 @@
 let asker = confirm("Жмякай по бутылке или нажимай на стрелочки");
 let img;
+let mobilerLeft= document.createElement("img");
+container.append(mobilerLeft);
+mobilerLeft.className = "move";
+mobilerLeft.style.left = "10%";
+mobilerLeft.src = "images/left.jpg";
+let mobilerRight= document.createElement("img");
+container.append(mobilerRight);
+mobilerRight.className = "move";
+mobilerRight.style.left = "78%";
+mobilerRight.src = "images/right.jpg";
+alertion.hidden = false;
 let red = 20;
 let score = 0;
 let blue = 220;
@@ -309,34 +320,24 @@ if (!pause) {
         
     
     }
-    function mover(e) {
-        width = container.offsetWidth;
-        touchX = e.touches[0].clientX;
-        touchY = e.touches[0].clientY;
-        back.style.display = "flex";
-        if (touchY >= img.getBoundingClientRect().bottom + 15) {
-            if (bottomLevel - img.getBoundingClientRect().bottom >= img.offsetHeight * 2) {
-                img.style.top = img.getBoundingClientRect().top + img.offsetHeight * 2 + "px";
-                };
-                findLevel();
-        }
-        
-        if (touchX <= width / 2) {
-            img.style.left = img.getBoundingClientRect().left - img.offsetWidth + "px";
+    function lefter() {
+        img.style.left = img.getBoundingClientRect().left - img.offsetWidth + "px";
         if (img.getBoundingClientRect().left < bottle.getBoundingClientRect().left) {
             img.style.left = bottle.getBoundingClientRect().left + "px";
         }
         
         findLevel();
-            
-        } else {
-            img.style.left = img.getBoundingClientRect().left + img.offsetWidth + "px";
+    }
+    function righter() {
+        img.style.left = img.getBoundingClientRect().left + img.offsetWidth + "px";
         if (img.getBoundingClientRect().left > bottle.getBoundingClientRect().right - img.offsetWidth) {
             img.style.left = bottle.getBoundingClientRect().right - img.offsetWidth + "px";
         }
         
-        findLevel()
-        }
+        findLevel();
     }
-    bottle.addEventListener('touchstart', mover);
-    bottle.addEventListener('touchend', () => back.style.display = "none");
+    
+    mobilerLeft.onmousedown = lefter;
+    mobilerRight.onmousedown = righter;
+    mobilerLeft.ontouchstart = lefter;
+    mobilerRight.ontouchstart = righter;

@@ -1,14 +1,18 @@
 body {
     background: pink;
 }
-#back {
+.move {
     position: absolute;
-    display: flex;
-    z-index: 3;
-    height: 100%;
-    width: 100%;
-    flex-direction: row;
+    width: 10%;
+    height: 10%;
+    z-index: 2;
+    background: white;
+    top: 80%;
+
+    
+
 }
+
 #white {
     height: 100%;
     background: white;
@@ -29,11 +33,11 @@ body {
     top: 10px;
     width: 100px;
     height: 20px;
-    font-family: Arial, sans-serif; /* Установка шрифта */
-    font-size: 16px; /* Установка размера шрифта */
-    color: #ce2929; /* Установка цвета текста */
-    font-weight: bold; /* Установка насыщенности шрифта (жирный) */
-    text-align: center; /* Установка выравнивания текста по центру */
+    font-family: Arial, sans-serif; 
+    font-size: 16px;
+    color: #ce2929; 
+    font-weight: bold;
+    text-align: center; 
     text-decoration: wavy;
 
 }
@@ -59,9 +63,9 @@ button {
     display: flex;
     background: pink;
    flex-direction: column;
-    justify-content: space-between;
-    height: 60%;
-    margin-top: 10%;
+    justify-content: start;
+    height: 100%;
+    
 }
 .bottle {
     position: relative;
@@ -107,7 +111,7 @@ button {
 .buttonMenu {
     background: green;
     height: 15%;
-    margin-bottom: 2%;
+    margin-bottom: 8%;
     border-radius: 5px;
     
 
@@ -126,9 +130,7 @@ button {
 .buttonMove {
     background: red;
 }
-.empty {
-    display: none;
-}
+
 #buttonTips {
     background: black;
     width: 40%;
@@ -152,6 +154,7 @@ button {
     text-decoration: dashed;
     font-size: 20;
     display: flex;
+    
 }
 .darker {
     animation-name: darker;
