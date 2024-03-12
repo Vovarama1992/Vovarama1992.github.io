@@ -4,6 +4,7 @@ document.addEventListener("load", function() {
 });
 let asker = confirm("Жмякай по бутылке или нажимай на стрелочки");
 let img;
+let grow = 0;
 let startHeight = water.offsetHeight;
 let mobilerLeft= document.createElement("img");
 container.append(mobilerLeft);
@@ -195,7 +196,7 @@ function push() {
                 
                 startHeight += 0.5;
             }
-            grow = bottom.length / 3;
+            grow = bottom.length * 2;
             water.style.height = startHeight + grow + "px";
             
             
