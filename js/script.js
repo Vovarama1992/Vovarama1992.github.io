@@ -82,7 +82,7 @@ function findLevel() {
     }
 };
 function push() {
-    if (water.getBoundingClientRect().top - palms.getBoundingClientRect().top <= 5) {
+    if (water.getBoundingClientRect().top - palms.getBoundingClientRect().top <= 10) {
         alert("Game over! U cannot hold level(((");
         clearInterval(countChanger);
         return;
@@ -196,7 +196,7 @@ function push() {
                 
                 startHeight += 0.5;
             }
-            grow = bottom.length * 2;
+            grow = bottom.length * 3.3;
             water.style.height = startHeight + grow + "px";
             
             
@@ -340,6 +340,7 @@ if (!pause) {
     
     }
     function lefter() {
+        if (!pause) {
         img.style.left = img.getBoundingClientRect().left - img.offsetWidth + "px";
         if (img.getBoundingClientRect().left < bottle.getBoundingClientRect().left) {
             img.style.left = bottle.getBoundingClientRect().left + "px";
@@ -347,13 +348,16 @@ if (!pause) {
         
         findLevel();
     }
+    }
     function righter() {
+        if (!pause) {
         img.style.left = img.getBoundingClientRect().left + img.offsetWidth + "px";
         if (img.getBoundingClientRect().left > bottle.getBoundingClientRect().right - img.offsetWidth) {
             img.style.left = bottle.getBoundingClientRect().right - img.offsetWidth + "px";
         }
         
         findLevel();
+    }
     }
     
     mobilerLeft.onmousedown = lefter;
